@@ -6,3 +6,5 @@ create table public.directory (
 alter table public.directory enable row level security;
 create policy browse on public.directory for select to anon using (true);
 grant select on public.directory to anon;
+revoke select on public.directory from public, anon;
+grant select (id, display_name) on public.directory to anon;
